@@ -6,10 +6,10 @@ import pandas as pd
 import plotly_express as px
 import plotly.figure_factory as ff
 
-df=pd.read_json("https://github.com/HRLeo19/Airbnb/blob/main/price.json")
-df2=pd.read_json("https://github.com/HRLeo19/Airbnb/blob/main/availability.json")
-df3=pd.read_json("https://github.com/HRLeo19/Airbnb/blob/main/fortrends.json")
-df4=pd.read_json("https://github.com/HRLeo19/Airbnb/blob/main/filtereddata.json")
+df=pd.read_json("https://raw.githubusercontent.com/HRLeo19/Airbnb/main/price.json")
+df2=pd.read_json("https://raw.githubusercontent.com/HRLeo19/Airbnb/main/availability.json")
+df3=pd.read_json("https://raw.githubusercontent.com/HRLeo19/Airbnb/main/fortrends.json")
+df4=pd.read_json("https://raw.githubusercontent.com/HRLeo19/Airbnb/main/filtereddata.json")
 
 st.set_page_config(page_title="Airbnb",
                    page_icon=":ab:",
@@ -20,8 +20,8 @@ selected = option_menu(None, ["Home", 'Analysis','Key Insights'],
            orientation="horizontal")
 
 if selected=="Home":
-    st.image("https://github.com/HRLeo19/Airbnb/blob/main/airbnblogo.png")
-    st.image("https://github.com/HRLeo19/Airbnb/blob/main/airbnb1.png")
+    st.image("https://raw.githubusercontent.com/HRLeo19/Airbnb/main/airbnblogo.png")
+    st.image("https://raw.githubusercontent.com/HRLeo19/Airbnb/main/airbnb1.png")
     st.markdown("---")
 
     #About
@@ -31,7 +31,7 @@ if selected=="Home":
     st.markdown('''####  👉  Airbnb is a shortened version of its original name, ⭐ AirBedandBreakfast.com 🎉.''')
     st.markdown('''####  👉  Airbnb is the most well known company for short term housing rentals.''')
     st.markdown('''####  👉  The company was founded in 2008 by''')
-    st.image("https://github.com/HRLeo19/Airbnb/blob/main/airbnb2.png")
+    st.image("https://raw.githubusercontent.com/HRLeo19/Airbnb/main/airbnb2.png")
 
     #Story
     st.title("Story:")
@@ -73,8 +73,8 @@ if selected=="Home":
         st.write("")
 
     st.write("")
-    st.image("https://github.com/HRLeo19/Airbnb/blob/main/airbnb3.png")
-    st.image("https://github.com/HRLeo19/Airbnb/blob/main/map.png")
+    st.image("https://raw.githubusercontent.com/HRLeo19/Airbnb/main/airbnb3.png")
+    st.image("https://raw.githubusercontent.com/HRLeo19/Airbnb/main/map.png")
 
 if selected=="Analysis":
 
