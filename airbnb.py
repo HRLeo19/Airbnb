@@ -1,4 +1,3 @@
-from turtle import color
 import streamlit as st
 from streamlit_option_menu import option_menu
 
@@ -21,7 +20,7 @@ selected = option_menu(None, ["Home", 'Analysis','Key Insights'],
            orientation="horizontal")
 
 if selected=="Home":
-    st.image("C:/Users/DELL XPS/Pictures/Screenshots/Screenshot 2024-07-01 124002.png")
+    st.image(""C:/Users/DELL XPS/Pictures/Screenshots/Screenshot 2024-07-01 124002.png")
     st.image("C:/Users/DELL XPS/Pictures/projects/airbnb1.png")
     st.markdown("---")
 
