@@ -28,6 +28,10 @@ This Project is mostly helpful to the company side. There is geospatial visualiz
 
 
 
+https://github.com/HRLeo19/Airbnb/assets/164137516/9cd5fce7-3bea-406f-818d-3faea8c97d61
+
+
+
 
 ## Deployment
 
