@@ -11,6 +11,14 @@ df2=pd.read_json("https://raw.githubusercontent.com/HRLeo19/Airbnb/main/availabi
 df3=pd.read_json("https://raw.githubusercontent.com/HRLeo19/Airbnb/main/fortrends.json")
 df4=pd.read_json("https://raw.githubusercontent.com/HRLeo19/Airbnb/main/filtereddata.json")
 
+#rate of total availability utilized.
+def rate(a,b,c):
+    df60=a[b==c]
+    rate60=((len(df60["avail_60"])/5555)*100)
+    rate60=round(rate60,2)
+    return rate60,len(df60["avail_60"])
+
+#Streamlit
 st.set_page_config(page_title="Airbnb",
                    page_icon=":ab:",
                    layout="wide")
@@ -291,3 +299,41 @@ if selected=="Key Insights":
             fig25=ff.create_table(df3_sample8,colorscale="YlOrRd_r")
             st.plotly_chart(fig25)
     st.markdown("---")
+
+    #point 4
+    r30,c30=rate(df2,df2["avail_30"],30)
+    r60,c60=rate(df2,df2["avail_60"],60)
+    r90,c90=rate(df2,df2["avail_90"],90)
+    r365,c365=rate(df2,df2["avail_365"],365)
+
+    percent={"Availability":["Avail_30","Avail_60","Avail_90","Avail_365"],
+             "Rate":[r30,r60,r90,r365],"Count":[c30,c60,c90,c365]}
+    ratedf=pd.DataFrame(percent)
+
+    ra1,ra2=st.columns(2)
+    with ra1:
+        st.markdown("### 4. Rate of Avialable Nights fully Booked")
+        st.write("")
+        st.markdown(f"##### ➡ Availability 30 Nights ⭐{r30}'% & Count is {c30}/5555.")
+        st.markdown(f"##### ➡ Availability 60 Nights ⭐{r60}'% & Count is {c60}/5555.")
+        st.markdown(f"##### ➡ Availability 90 Nights ⭐{r90}'% & Count is {c90}/5555.")
+        st.markdown(f"##### ➡ Availability 365 Nights ⭐{r365}'% & Count is {c365}/5555.")
+    with ra2:
+        fig26=px.bar(ratedf,x="Availability",y="Rate",height=300,hover_name="Rate",
+                     color_discrete_sequence=px.colors.sequential.Mint_r,title="30/60/90/365 fully booked by % & total count",
+                     text="Count")
+        st.plotly_chart(fig26)
+    st.markdown("---")
+
+    #point 5
+    st.markdown("### 5. Informative Points")
+    st.write("")
+    ip1,ip2=st.columns([1,5])
+    with ip2:
+        st.markdown("#### ➡ Mostly Preferred property is :blue[Apartment].")
+        st.markdown("#### ➡ Mostly Preferred Room type is :blue[Private Room].")
+        st.markdown("#### ➡ Mostly Preferred Bed type is :blue[Real Bed].")
+        st.markdown("#### ➡ Mostly Preferred atleast 1 bed and 1 bathroom.")
+        st.markdown("#### ➡ Avg host response rate is ⭐93.11'% .")
+        st.markdown("#### ➡ Mostly Host responsing time is within a hour,few hours,atleast by the day.")
+        st.markdown("#### ➡ Miniumum documents required for verification is :red[Email, Phone, Government ID proof, Reviews, Jumio](online identity verification process).")
